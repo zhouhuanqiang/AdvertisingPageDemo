@@ -17,7 +17,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.title = @"首页";
+    
     self.view.backgroundColor = [UIColor orangeColor];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushToAd) name:@"pushtoad" object:nil];
 }
 

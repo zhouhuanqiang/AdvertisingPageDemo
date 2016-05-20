@@ -18,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"点击进入广告链接";
     _webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
     _webView.backgroundColor = [UIColor whiteColor];
     if (!self.adUrl) {

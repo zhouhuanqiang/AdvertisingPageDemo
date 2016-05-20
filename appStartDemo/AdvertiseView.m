@@ -21,7 +21,7 @@
 @end
 
 // 广告显示的时间
-static int const showtime = 5;
+static int const showtime = 3;
 
 @implementation AdvertiseView
 
@@ -68,7 +68,9 @@ static int const showtime = 5;
 }
 
 - (void)pushToAd{
+    
     [self dismiss];
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"pushtoad" object:nil userInfo:nil];
 }
 
@@ -86,7 +88,7 @@ static int const showtime = 5;
 - (void)show
 {
 //    [self startCoundown];
-        [self startTimer];
+    [self startTimer];
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     [window addSubview:self];
 }
@@ -98,7 +100,7 @@ static int const showtime = 5;
     [[NSRunLoop mainRunLoop] addTimer:self.countTimer forMode:NSRunLoopCommonModes];
 }
 
-//
+// GCD倒计时
 - (void)startCoundown
 {
     __block int timeout = showtime + 1; //倒计时时间 + 1
@@ -124,6 +126,7 @@ static int const showtime = 5;
     dispatch_resume(_timer);
 }
 
+// 移除广告页面
 - (void)dismiss
 {
     [UIView animateWithDuration:0.3f animations:^{
