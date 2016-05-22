@@ -1,9 +1,9 @@
 //
 //  ViewController.m
-//  appStartDemo
+//  advertiseDemo
 //
-//  Created by 周焕强 on 16/5/18.
-//  Copyright © 2016年 zhq. All rights reserved.
+//  Created by zhouhuanqiang on 16/5/22.
+//  Copyright © 2016年 zhouhuanqiang. All rights reserved.
 //
 
 #import "ViewController.h"
@@ -31,5 +31,6 @@
     [self.navigationController pushViewController:adVc animated:YES];
     
 }
+
 
 @end
