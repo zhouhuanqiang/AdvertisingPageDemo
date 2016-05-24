@@ -136,8 +136,10 @@
 - (NSString *)getFilePathWithImageName:(NSString *)imageName
 {
     if (imageName) {
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory,NSUserDomainMask, YES);
-        NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"Caches/%@", imageName]];
+
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory,NSUserDomainMask, YES);
+        NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:imageName];
+    
         return filePath;
     }
     
