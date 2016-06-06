@@ -73,8 +73,16 @@
     AFHTTPRequestOperationManager * manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/html", nil];
     [manager GET:urlStr parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSLog(@"%@", responseObject);
         NSArray *dataArray = responseObject[@"data"];
-        NSString *imageUrl = dataArray[0][@"imageUrl"];
+        NSString *imageUrl = nil;
+        if (dataArray.count) {
+           imageUrl = dataArray[0][@"imageUrl"];
+        }else{
+            imageUrl = @"http://img1.gamedog.cn/2013/08/05/43-130P5122Z60-50.jpg";
+        }
+        
+ 
         NSArray *stringArr = [imageUrl componentsSeparatedByString:@"/"];
         NSString *imageName = stringArr.lastObject;
         NSString *filePath = [self getFilePathWithImageName:imageName];
