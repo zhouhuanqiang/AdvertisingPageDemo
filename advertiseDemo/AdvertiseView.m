@@ -37,6 +37,7 @@ static int const showtime = 3;
 {
     if (self = [super initWithFrame:frame]) {
 
+        // 1.广告图片
         _adView = [[UIImageView alloc] initWithFrame:frame];
         _adView.userInteractionEnabled = YES;
         _adView.contentMode = UIViewContentModeScaleAspectFill;
@@ -44,6 +45,7 @@ static int const showtime = 3;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pushToAd)];
         [_adView addGestureRecognizer:tap];
 
+        // 2.跳过按钮
         CGFloat btnW = 60;
         CGFloat btnH = 30;
         _countBtn = [[UIButton alloc] initWithFrame:CGRectMake(kscreenWidth - btnW - 24, btnH, btnW, btnH)];
@@ -87,7 +89,10 @@ static int const showtime = 3;
 
 - (void)show
 {
+    // 倒计时方法1：GCD
 //    [self startCoundown];
+    
+    // 倒计时方法2：定时器
     [self startTimer];
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     [window addSubview:self];
