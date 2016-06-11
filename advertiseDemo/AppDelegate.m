@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "AFNetworking.h"
 #import "ViewController.h"
 #import "AdvertiseView.h"
 
@@ -64,7 +63,7 @@
 - (void)getAdvertisingImage
 {
 
-    // 这里原本采用美团的广告接口，现在没法用了。所以用了一些固定的图片url代替
+    // 这里原本采用美团的广告接口，现在好像没法用了。所以用了一些固定的图片url代替
     NSArray *imageArray = @[@"http://imgsrc.baidu.com/forum/pic/item/fd039245d688d43f70b37c1a7d1ed21b0ff43bc4.jpg", @"http://a4.mzstatic.com/us/r30/Purple6/v4/93/3e/10/933e1072-791b-49d5-4292-db6cb4f7ab5f/screen640x960.jpeg", @"http://img5.pcpop.com/ArticleImages/picshow/0x0/20110801/2011080114495843125.jpg", @"http://a.hiphotos.baidu.com/image/pic/item/b21c8701a18b87d6ff2ca7bc030828381f30fd23.jpg"];
     NSString *imageUrl = imageArray[arc4random() % imageArray.count];
     
