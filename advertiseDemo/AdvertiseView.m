@@ -81,8 +81,7 @@ static int const showtime = 3;
     _count --;
     [_countBtn setTitle:[NSString stringWithFormat:@"跳过%d",_count] forState:UIControlStateNormal];
     if (_count == 0) {
-        [self.countTimer invalidate];
-        self.countTimer = nil;
+
         [self dismiss];
     }
 }
@@ -134,12 +133,17 @@ static int const showtime = 3;
 // 移除广告页面
 - (void)dismiss
 {
+    [self.countTimer invalidate];
+    self.countTimer = nil;
+    
     [UIView animateWithDuration:0.3f animations:^{
 
         self.alpha = 0.f;
+        
     } completion:^(BOOL finished) {
+        
         [self removeFromSuperview];
-
+        
     }];
 
 }
